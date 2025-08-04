@@ -1,0 +1,29 @@
+Example 1:
+
+Input: s = "abcabcbb"
+Output: 3
+Explanation: The answer is "abc", with the length of 3.
+
+
+c++:
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+      unordered_set<char> set;          // Keeps track of unique characters in window
+int left = 0, count = 0;
+
+for (int right = 0; right < s.length(); right++) {
+    while (set.count(s[right])) { // If duplicate character found
+        set.erase(s[left]);       // Remove from left until duplicate is gone
+        left++;
+    }
+    set.insert(s[right]);         // Add new unique character
+    count = max(count, right - left + 1); // Update max window size
+}
+return count;
+    }
+
+};
+
+
+
