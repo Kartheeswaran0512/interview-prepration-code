@@ -1,0 +1,14 @@
+input:
+string s = "saveChangesInTheEditor";
+cout << countCamelCaseWords(s); // Output: 5
+
+code:
+int CamelString(string s){
+int count=1;
+for(int i=0;i<s.length()-1;i++)
+{
+    if(isupper(s[i])
+         count++;
+}
+return count;
+}
