@@ -1,0 +1,38 @@
+❓ Problem: Valid Anagram
+Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+
+📝 An anagram is a word or phrase formed by rearranging the letters of a different word or phrase — using all original letters exactly once.
+
+🧪 Example 1:
+text
+Copy
+Edit
+Input: s = "anagram", t = "nagaram"
+Output: true
+🧪 Example 2:
+text
+Copy
+Edit
+Input: s = "rat", t = "car"
+Output: false
+
+code:
+
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+       unordered_map<char,int>mp;
+       for(auto i : s){
+        mp[i]++;
+       } 
+       for(auto j : t){
+         mp[j]--;
+       }
+       for(auto k : mp){
+        if(k.second!=0){
+            return false;
+        }
+       }
+       return true;
+    }
+};
